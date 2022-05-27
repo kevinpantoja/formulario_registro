@@ -12,6 +12,9 @@
             </div>
         
             <form class="formulario" name="miFormulario" id="miFormulario" method="post" action="procesa.php">
+                <div class="mensaje__error">
+                    
+                </div>
                 <!--comentario-->
                 <h1 class="formulario_titulo input_texto"><strong>Registro de persona</strong></h1>
                 <div class="formulario_input _100">
@@ -30,8 +33,8 @@
                     <label class="formulario_label">fecha de nacimiento</label>
                     <div>
                         <label for="diaNac" class="label_fecha">dia:</label>
-                        <input autocomplete="off"  class='input_fecha' list="diaNac">
-                        <datalist name="diaNac" id="diaNac">
+                        <input autocomplete="off" name="diaNac" class='input_fecha' list="diaNac">
+                        <datalist id="diaNac">
                         <?php
                             for($i = 1; $i<32; $i++)
                             {
@@ -46,8 +49,8 @@
                     </div>
                     <div>
                         <label for="mesNac" class="label_fecha" >mes:</label>
-                        <input autocomplete="off"  class='input_fecha' list="mesNac">
-                        <datalist name="mesNac" id="mesNac">
+                        <input autocomplete="off" name="mesNac"  class='input_fecha' list="mesNac">
+                        <datalist id="mesNac">
                         <?php
                             for($i = 1; $i<=12; $i++)
                             {
@@ -62,8 +65,8 @@
                     </div>
                     <div>
                         <label for="anioNac" class="label_fecha">año:</label>
-                        <input autocomplete="off" class='input_fecha' list="anioNac">
-                        <datalist name="anioNac" id="anioNac">
+                        <input autocomplete="off" name="anioNac" class='input_fecha' list="anioNac">
+                        <datalist id="anioNac">
                         <?php
                         $anio = date("Y");
                         for($i = $anio; $i >= 1900; $i--)

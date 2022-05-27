@@ -4,6 +4,7 @@
     --azul_claro: rgb(158,229,233);
     --blanco: rgb(255,255,255);
     --rojo: #ef233c;
+    --rojo-transparente: #44070ec0;
 }
 *{
     padding: 0;
@@ -151,7 +152,6 @@ label{
     border: 1px solid var(--azul_claro);
 }
 
-
 .boton_enviar,.boton_cancelar{
     width: 80%;
     background-color: var(--azul_claro);
@@ -184,9 +184,22 @@ label{
 .error_input{
     border: 1px var(--rojo) solid;
 }
-/* .error_label{
-    color: var(--rojo);
-} */
+
+/*mensaje de error*/
+.mensaje__error{
+    color: var(--blanco);
+    background-color: var(--rojo);
+    padding: 1rem 2rem;
+    font-weight: bold;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    box-shadow: 4px 4px 8px var(--rojo-transparente);
+    visibility: hidden;
+}
+.error__visible{
+    visibility: visible;
+}
 
 @media (max-width: 720px) {
     .contenedor__banner > img{
