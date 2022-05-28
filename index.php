@@ -33,7 +33,7 @@
                     <label class="formulario_label">fecha de nacimiento</label>
                     <div>
                         <label for="diaNac" class="label_fecha">dia:</label>
-                        <input autocomplete="off" name="diaNac" class='input_fecha' list="diaNac">
+                        <input autocomplete="off" name="diaNac" class='input_fecha diaNac' list="diaNac">
                         <datalist id="diaNac">
                         <?php
                             for($i = 1; $i<32; $i++)
@@ -49,7 +49,7 @@
                     </div>
                     <div>
                         <label for="mesNac" class="label_fecha" >mes:</label>
-                        <input autocomplete="off" name="mesNac"  class='input_fecha' list="mesNac">
+                        <input autocomplete="off" name="mesNac"  class='input_fecha mesNac' list="mesNac">
                         <datalist id="mesNac">
                         <?php
                             for($i = 1; $i<=12; $i++)
@@ -65,7 +65,7 @@
                     </div>
                     <div>
                         <label for="anioNac" class="label_fecha">año:</label>
-                        <input autocomplete="off" name="anioNac" class='input_fecha' list="anioNac">
+                        <input autocomplete="off" name="anioNac" class='input_fecha anioNac' list="anioNac">
                         <datalist id="anioNac">
                         <?php
                         $anio = date("Y");

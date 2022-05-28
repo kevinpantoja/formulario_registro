@@ -8,10 +8,10 @@ $input_direccion = document.getElementById("direccion"),
 $input_amaterno = document.getElementById("amaterno"),
 $mensaje__error = document.querySelector(".mensaje__error"),
 $enviar = document.querySelector(".boton_enviar"),
+$dia = document.querySelector(".diaNac"),
+$mes = document.querySelector(".mesNac"),
+$anio = document.querySelector(".anioNac"),
 $form = document.querySelector(".formulario");
-
-
-
 
 
 /*funciones de validación*/
@@ -43,9 +43,63 @@ const validar_direccion = (texto)=>{
     }
     return false;
 }
+const validar_fecha = ()=>{
+    if($dia.value=="" || $mes.value=="" || $anio.value==""){
+        mostrar_error("fecha incompleta");
+        return false;
+    }
+    if(Number($dia.value) >= 30 && $mes.value == "02"){
+            mostrar_error("febrero tiene 28-29 días máximos");
+            return false;
+    }
+    if($mes.value == "02" && $dia.value == "29"){
+        if(Number($anio.value) % 4 == 0){
+            if(Number($anio.value) % 100 == 0){
+                if(Number($anio.value) % 400 == 0){
+                    ocultar_error();
+                    return true;
+                }
+                mostrar_error("el año no es bisiesto");
+                return false;
+            }
+            ocultar_error();
+            return true;
+        }
+        mostrar_error("el año no es bisiesto");
+        return false;
+    }
+    if($dia.value == "31"){
+        if($mes.value == "01" || $mes.value == "03" || $mes.value == "05" || $mes.value == "07" || $mes.value == "08" || $mes.value == "10" || $mes.value == "12"){
+            ocultar_error();
+            return true;
+        }else{
+            mostrar_error("el mes tiene como máximo 30 días");
+            return false;
+        }
+    }
+    ocultar_error();
+    return true;
+}
 
 
 /*asignacion de eventos*/
+const analizar_input_fecha = ()=>{
+    console.log("analizando fecha");
+    $elemento = $mes;
+    if(validar_fecha()){
+        if($elemento.classList.contains("error_input")){
+            $elemento.classList.remove("error_input")
+        }
+        console.log("fecha sin error");
+        return true;
+    }else{
+        if(!$elemento.classList.contains("error_input")){
+            $elemento.classList.add("error_input")
+        }
+        console.log("fecha con error");
+        return false;
+    }
+}
 const analizar_input = ($elemento,funcion)=>{
     if(funcion($elemento.value.trim())){
         if($elemento.classList.contains("error_input")){
@@ -134,7 +188,7 @@ const evento_celular = ($elemento)=>{
             mostrar_error("El celular solo debe contener números");
             return;
         }
-        if($elemento.value.length == 9){
+        if($elemento.value.length != 9){
             mostrar_error("El celular debe tener 9 dígitos");
             return;
         }
@@ -162,6 +216,17 @@ window.addEventListener("load", (m)=>{
     }
 });
 
+$mes.addEventListener("input",(e)=>{
+    analizar_input_fecha();
+})
+$dia.addEventListener("input",(e)=>{
+    analizar_input_fecha();
+})
+$anio.addEventListener("input",(e)=>{
+    analizar_input_fecha();
+})
+
+
 
 /*validar antes de enviar*/
 const verificando_casillas = (elementos,funciones)=>{
@@ -173,6 +238,7 @@ const verificando_casillas = (elementos,funciones)=>{
                 verificador = false;
         }
     }
+    verificador = analizar_input_fecha()?verificador:false;
     return verificador;
 }
 
