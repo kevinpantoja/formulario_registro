@@ -11,9 +11,6 @@ $enviar = document.querySelector(".boton_enviar"),
 $form = document.querySelector(".formulario");
 
 
-
-
-
 /*funciones de validación*/
 const validar_nombre = (texto)=>{
     let exp_reg = /^[a-záéíóúáäëïöü\s]*$/i;

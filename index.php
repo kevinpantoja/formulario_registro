@@ -2,7 +2,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>MI FORMULARIO - POST</title>
-<link rel="stylesheet" href="./style.css">
+<link rel="stylesheet" href="./styles.css">
 </head>
 <body>
     <section class="contenedor">
@@ -126,6 +126,6 @@
         </div>
     </section>      
     
-    <script src="./script.js"></script>
+    <script src="./scripts.js"></script>
 </body>
 </html>

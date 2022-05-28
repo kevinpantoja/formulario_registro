@@ -43,6 +43,49 @@ html{
     grid-template-columns: 1fr 2fr;
     max-width: 1000px;
 }
+.container-info{
+    background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0)),url("./img/fondo4.jpg");
+    background-size: cover;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.container-info__box{
+    width: 30rem;
+    height:25rem;
+    background-image: url(img/fondo5.jpg);
+    color: #fff;
+    padding: 20px;
+    background-size: cover;;
+    font-weight: 900;
+}
+.container-info__box .title{
+    text-align: center;
+    font-size: 2rem;
+}
+.container-info__box .dato{
+    background-color: rgb(24, 20, 20);
+    margin: 5px 0;
+    padding: 5px 5px;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+.container-info__box li{
+    margin: 0 20px;
+}
+.container-info__box .close{
+    width: 100%;
+    height: 100%;
+    color: #fff;
+    background-color: red;
+    cursor: pointer;
+    font-size: 1rem;
+    border-radius: 5px;
+    text-align: center;
+}
+
 .formulario{
     background: var(--transparent);
     display: flex;
@@ -223,10 +266,24 @@ label{
     .contenedor__banner > img{
         height: 250px;
     }
+    
+    .container-info__box .dato{
+        font-size: .8rem;
+    }
 }
 @media (max-width: 600px) {
     ._50{
         width: 100%;
+    }
+
+    .container-info__box{
+        width: 95%;
+    }
+    .container-info__box .dato{
+        font-size: .7rem;
+    }
+    .container-info__box .close{
+        font-size: .5rem;
     }
 }
 
